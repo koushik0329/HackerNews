@@ -7,13 +7,19 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class WelcomeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
 
-
+    @IBAction func SignUpAction(_ sender: Any) {
+        print("SignUp button clicked")
+    }
+    
+    @IBAction func LogInAction(_ sender: Any) {
+        print("LogIn button clicked")
+    }
 }
 

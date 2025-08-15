@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Welcome View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Sample" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="WelcomeViewController" customModule="Sample" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -61,6 +61,7 @@
                                     </attributedString>
                                 </buttonConfiguration>
                                 <connections>
+                                    <action selector="SignUpAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ch9-jh-Cjw"/>
                                     <segue destination="ODj-jP-dEu" kind="showDetail" id="slK-Lp-LEB"/>
                                 </connections>
                             </button>
@@ -82,7 +83,8 @@
                                     </attributedString>
                                 </buttonConfiguration>
                                 <connections>
-                                    <segue destination="Mqi-3j-50g" kind="showDetail" id="nZQ-9G-pWU"/>
+                                    <action selector="LogInAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Quf-D8-9Xi"/>
+                                    <segue destination="Mqi-3j-50g" kind="showDetail" id="iUA-3l-u9g"/>
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Image" translatesAutoresizingMaskIntoConstraints="NO" id="Fdp-ud-7Iz">
@@ -124,10 +126,10 @@
             </objects>
             <point key="canvasLocation" x="973.28244274809151" y="3.5211267605633805"/>
         </scene>
-        <!--View Controller-->
+        <!--Forgot Password View Controller-->
         <scene sceneID="13C-oa-T2Y">
             <objects>
-                <viewController id="YTf-mP-oM7" sceneMemberID="viewController">
+                <viewController id="YTf-mP-oM7" customClass="ForgotPasswordViewController" customModule="Sample" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="odW-uQ-Dv0">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -176,6 +178,7 @@
                                     <fontDescription key="titleFontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="14"/>
                                 </buttonConfiguration>
                                 <connections>
+                                    <action selector="SendCodeAction:" destination="YTf-mP-oM7" eventType="touchUpInside" id="BMh-VS-9vP"/>
                                     <segue destination="Ffj-6n-IK3" kind="showDetail" id="PDG-C5-OnE"/>
                                 </connections>
                             </button>
@@ -193,6 +196,9 @@
                         <viewLayoutGuide key="safeArea" id="KVG-qO-kZa"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
+                    <connections>
+                        <outlet property="EmailInput" destination="oye-yR-Ony" id="IGM-pV-nsD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Y3x-aT-40R" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -201,7 +207,7 @@
         <!--View Controller-->
         <scene sceneID="dVO-3r-bI7">
             <objects>
-                <viewController id="Ffj-6n-IK3" sceneMemberID="viewController">
+                <viewController id="Ffj-6n-IK3" customClass="OTPViewController" customModule="Sample" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dw0-OL-b6F">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -258,7 +264,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VJK-Zx-zQe">
-                                <rect key="frame" x="16" y="390" width="361" height="44"/>
+                                <rect key="frame" x="15" y="390" width="361" height="43"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemRedColor"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -267,6 +273,8 @@
                                     <fontDescription key="titleFontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="14"/>
                                 </buttonConfiguration>
                                 <connections>
+                                    <action selector="ContinueAction:" destination="YjC-18-mEi" eventType="touchUpInside" id="YAA-6K-z2W"/>
+                                    <action selector="ContinueAction:" destination="Ffj-6n-IK3" eventType="touchUpInside" id="u6L-Fx-yos"/>
                                     <segue destination="sKl-uJ-aNJ" kind="showDetail" id="EY3-gc-Afp"/>
                                 </connections>
                             </button>
@@ -300,13 +308,14 @@
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BTZ-xA-0tz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="YjC-18-mEi" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="3213" y="894"/>
         </scene>
-        <!--View Controller-->
+        <!--Create New Password View Controller-->
         <scene sceneID="ttL-4A-BjH">
             <objects>
-                <viewController id="sKl-uJ-aNJ" sceneMemberID="viewController">
+                <viewController id="sKl-uJ-aNJ" customClass="CreateNewPasswordViewController" customModule="Sample" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nFC-yS-qf7">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -375,6 +384,7 @@
                                     </attributedString>
                                 </buttonConfiguration>
                                 <connections>
+                                    <action selector="ResetPasswordAction:" destination="sKl-uJ-aNJ" eventType="touchUpInside" id="wMF-Y0-RLi"/>
                                     <segue destination="hD2-6G-VAN" kind="showDetail" id="5hj-yB-048"/>
                                 </connections>
                             </button>
@@ -392,15 +402,19 @@
                         <viewLayoutGuide key="safeArea" id="qbH-eT-JRa"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
+                    <connections>
+                        <outlet property="PasswordInput" destination="NhD-i5-ffb" id="Tes-ae-6CK"/>
+                        <outlet property="confirmPassword" destination="n8i-bm-eNW" id="25C-mE-ajH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tmu-Gx-kIO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4587" y="894"/>
         </scene>
-        <!--View Controller-->
+        <!--Password Changed View Controller-->
         <scene sceneID="Fnt-VL-0dY">
             <objects>
-                <viewController id="hD2-6G-VAN" sceneMemberID="viewController">
+                <viewController id="hD2-6G-VAN" customClass="PasswordChangedViewController" customModule="Sample" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8Lf-ab-Dy8">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -440,7 +454,8 @@
                                     </attributedString>
                                 </buttonConfiguration>
                                 <connections>
-                                    <segue destination="Mqi-3j-50g" kind="showDetail" id="TjU-VB-4dz"/>
+                                    <action selector="BackToLogin:" destination="hD2-6G-VAN" eventType="touchUpInside" id="w4v-98-Sq6"/>
+                                    <segue destination="Mqi-3j-50g" kind="showDetail" id="x7u-cp-lu8"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -452,10 +467,10 @@
             </objects>
             <point key="canvasLocation" x="5695" y="242"/>
         </scene>
-        <!--View Controller-->
+        <!--Sign Up View Controller-->
         <scene sceneID="n0m-rN-Qqo">
             <objects>
-                <viewController id="ODj-jP-dEu" sceneMemberID="viewController">
+                <viewController id="ODj-jP-dEu" customClass="SignUpViewController" customModule="Sample" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jKR-E5-5XK">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -566,6 +581,9 @@
                                         </fragment>
                                     </attributedString>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="SignUpViewAction:" destination="ODj-jP-dEu" eventType="touchUpInside" id="fke-Xj-pPv"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Or login with" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GTh-83-0RQ">
                                 <rect key="frame" x="146" y="642" width="96" height="21"/>
@@ -603,7 +621,8 @@
                                     <fontDescription key="titleFontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="14"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <segue destination="Mqi-3j-50g" kind="showDetail" id="Ack-pE-uSy"/>
+                                    <action selector="LogInViewAction:" destination="ODj-jP-dEu" eventType="touchUpInside" id="Ydb-S7-FSQ"/>
+                                    <segue destination="Mqi-3j-50g" kind="showDetail" id="KRl-oc-h7C"/>
                                 </connections>
                             </button>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9CY-4t-wgj">
@@ -621,6 +640,13 @@
                         <viewLayoutGuide key="safeArea" id="hGf-aZ-Zcy"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
+                    <connections>
+                        <outlet property="EmailInput" destination="CEf-Pm-hCl" id="ffm-Ro-6s9"/>
+                        <outlet property="FirstNameInput" destination="FBB-dS-xya" id="Fu0-sn-fpb"/>
+                        <outlet property="LastNameInput" destination="3fM-bd-PAF" id="kkU-Xf-l9c"/>
+                        <outlet property="Password" destination="Q87-xE-wW0" id="awx-C0-Xyu"/>
+                        <outlet property="VerifyPassword" destination="CIp-zf-9Cb" id="i0K-Ev-4Gr"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MwX-zg-B3d" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -629,7 +655,7 @@
         <!--Title-->
         <scene sceneID="PBV-Ua-NYD">
             <objects>
-                <viewController id="Mqi-3j-50g" sceneMemberID="viewController">
+                <viewController id="Mqi-3j-50g" customClass="LogInViewController" customModule="Sample" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mo2-zx-thd">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -678,6 +704,10 @@
                                         </fragment>
                                     </attributedString>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="loginAction:" destination="Mqi-3j-50g" eventType="touchUpInside" id="LVg-g5-AfG"/>
+                                    <action selector="loginAction:" destination="lyP-XJ-syb" eventType="touchUpInside" id="iYD-J9-mWT"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Or login with" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C7t-ob-Tt3">
                                 <rect key="frame" x="140" y="654" width="96" height="21"/>
@@ -712,12 +742,18 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="EmailInput:" destination="lyP-XJ-syb" eventType="editingDidEnd" id="Dlx-q8-56t"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Your Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="L3C-Kb-vjU">
                                 <rect key="frame" x="16" y="445" width="364" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                <connections>
+                                    <action selector="PasswordInput:" destination="lyP-XJ-syb" eventType="editingDidEnd" id="wnh-dv-GUS"/>
+                                </connections>
                             </textField>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="person.crop.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="HIR-xv-bye">
                                 <rect key="frame" x="119" y="233.66666666666663" width="137" height="100"/>
@@ -742,6 +778,7 @@
                                     <fontDescription key="titleFontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
                                 </buttonConfiguration>
                                 <connections>
+                                    <action selector="forgotAction:" destination="Mqi-3j-50g" eventType="touchUpInside" id="6Bq-3y-rNn"/>
                                     <segue destination="YTf-mP-oM7" kind="showDetail" id="Fd3-HZ-zc8"/>
                                 </connections>
                             </button>
@@ -763,6 +800,8 @@
                                     <fontDescription key="titleFontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="14"/>
                                 </buttonConfiguration>
                                 <connections>
+                                    <action selector="joinNowAction:" destination="lyP-XJ-syb" eventType="touchUpInside" id="8hG-GD-vn0"/>
+                                    <action selector="joinNowAction:" destination="Mqi-3j-50g" eventType="touchUpInside" id="Q1l-vT-qrH"/>
                                     <segue destination="ODj-jP-dEu" kind="showDetail" id="A2O-WN-SbI"/>
                                 </connections>
                             </button>
@@ -783,8 +822,13 @@
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="B6F-yv-Al5"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="emailInput" destination="ztN-no-E3a" id="gOx-nK-iSh"/>
+                        <outlet property="passwordInput" destination="L3C-Kb-vjU" id="m5e-HH-a04"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3gU-Y6-NnB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="lyP-XJ-syb" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1947" y="4"/>
         </scene>
@@ -808,10 +852,10 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="TjU-VB-4dz"/>
+        <segue reference="x7u-cp-lu8"/>
         <segue reference="A2O-WN-SbI"/>
         <segue reference="z2z-aC-nAy"/>
-        <segue reference="LHA-wM-Mhw"/>
+        <segue reference="Fd3-HZ-zc8"/>
         <segue reference="dLr-mW-0xb"/>
     </inferredMetricsTieBreakers>
     <resources>
