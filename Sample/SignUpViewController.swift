@@ -69,7 +69,7 @@ class SignUpViewController: UIViewController {
             return false
         }
         guard let verifyPassword = verifyPassword, verifyPassword.count > 6 else {
-            print("password is invalid")
+            print("verify password is invalid")
             
             return false
         }
