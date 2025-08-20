@@ -25,6 +25,15 @@ class CreateNewPasswordViewController: UIViewController {
         
         print("PasswordInput: \(PasswordInput.text ?? "")")
         print("confirmPassword: \(confirmPassword.text ?? ""))")
+        
+        navigateToPasswordChangedViewController()
+    }
+    
+    func navigateToPasswordChangedViewController(){
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        if let vc = storyboard.instantiateViewController(withIdentifier: "PasswordChangedViewController") as? PasswordChangedViewController{
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
     }
     /*
     // MARK: - Navigation

@@ -17,8 +17,15 @@ class SignUpViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+//        self.navigationController?.navigationBar.isHidden = true
 
         // Do any additional setup after loading the view.
+        
+//        let navigationStack = self.navigationController?.viewControllers
+//        for vc in navigationStack ?? [] {
+//            print(vc)
+//        }
     }
     
 
@@ -43,6 +50,7 @@ class SignUpViewController: UIViewController {
     
     @IBAction func LogInViewAction(_ sender: Any) {
         print("login button clicked in signup page")
+        navigateToLogIn()
     }
     
     func validateName (firstName : String?,lastName : String? ) -> Bool {
@@ -80,6 +88,13 @@ class SignUpViewController: UIViewController {
 //                    return false
 //                }
 //                return true
+    }
+    
+    func navigateToLogIn() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        if let logInViewController = storyboard.instantiateViewController(withIdentifier: "LogInViewController") as? LogInViewController {
+            self.navigationController?.pushViewController(logInViewController, animated: true)
+        }
     }
     
     /*

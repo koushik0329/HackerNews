@@ -16,10 +16,30 @@ class WelcomeViewController: UIViewController {
 
     @IBAction func SignUpAction(_ sender: Any) {
         print("SignUp button clicked")
+        navigateToSignUpScreen()
     }
     
     @IBAction func LogInAction(_ sender: Any) {
         print("LogIn button clicked")
+        navigateToLogInScreen()
+    }
+    
+    func navigateToSignUpScreen() {
+        // create a story borad reference
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        //story board id should be used here
+        if let signUpVC = storyboard.instantiateViewController(withIdentifier: "SignUpViewController") as? SignUpViewController{
+            self.navigationController?.pushViewController(signUpVC, animated: true)
+        }
+    }
+    
+    func navigateToLogInScreen() {
+        // create a story borad reference
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        //story board id should be used here
+        if let loginVC = storyboard.instantiateViewController(withIdentifier: "LogInViewController") as? LogInViewController{
+            self.navigationController?.pushViewController(loginVC, animated: true)
+        }
     }
 }
 

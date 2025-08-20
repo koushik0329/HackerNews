@@ -17,6 +17,14 @@ class OTPViewController: UIViewController {
     
     @IBAction func ContinueAction(_ sender: Any) {
         print("clicked continue")
+        navigateToCreateNewPassword()
+    }
+    
+    func navigateToCreateNewPassword() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        if let vc = storyboard.instantiateViewController(withIdentifier: "CreateNewPasswordViewController") as? CreateNewPasswordViewController {
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
     }
     
     /*

@@ -18,6 +18,14 @@ class PasswordChangedViewController: UIViewController {
 
     @IBAction func BackToLogin(_ sender: Any) {
         print("back to login")
+        navigateToLogin()
+    }
+    
+    func navigateToLogin() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        if let loginViewController = storyboard.instantiateViewController(withIdentifier: "LogInViewController") as? LogInViewController {
+            self.navigationController?.pushViewController(loginViewController, animated: true)
+        }
     }
     /*
     // MARK: - Navigation

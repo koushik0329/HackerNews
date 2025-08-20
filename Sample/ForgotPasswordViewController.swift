@@ -22,6 +22,15 @@ class ForgotPasswordViewController: UIViewController {
         print("clicked send code button")
         
         print("EmailInput: \(EmailInput.text ?? "")")
+        
+        navigateToVerifyCode()
+    }
+    
+    func navigateToVerifyCode() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        if let vc = storyboard.instantiateViewController(withIdentifier: "OTPViewController") as? OTPViewController {
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
     }
     /*
     // MARK: - Navigation
