@@ -78,6 +78,7 @@ class SignUpIIViewController: UIViewController {
         SignUpButton.backgroundColor = .systemRed
         SignUpButton.setTitleColor(UIColor.white, for: .normal)
         SignUpButton.translatesAutoresizingMaskIntoConstraints = false
+        SignUpButton.addTarget(self, action: #selector(handleSignUp), for: .touchUpInside)
         view.addSubview(SignUpButton)
         
         AlreadyHaveAnAccountLabel = UILabel()
@@ -90,6 +91,7 @@ class SignUpIIViewController: UIViewController {
         SignInButton.setTitle("Sign In", for: .normal)
         SignInButton.setTitleColor(UIColor.blue, for: .normal)
         SignInButton.translatesAutoresizingMaskIntoConstraints = false
+        SignInButton.addTarget(self, action: #selector(handleSignIn), for: .touchUpInside)
         view.addSubview(SignInButton)
         
         let textFieldStack = UIStackView(arrangedSubviews: [FirstNameTextField, LastNameTextField, EmailTextField, PasswordTextField, VerifyPasswordTextField])
@@ -120,5 +122,28 @@ class SignUpIIViewController: UIViewController {
             SignInButton.centerYAnchor.constraint(equalTo: AlreadyHaveAnAccountLabel.centerYAnchor)
         ])
 
+    }
+    
+    @objc func handleSignUp() {
+        navigateToSignUp()
+    }
+    
+    @objc func handleSignIn() {
+        navigateToSignIn()
+    }
+    
+    func navigateToSignUp() {
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "TableViewController")
+        self.present(vc, animated: true, completion: nil)
+    }
+    
+    func navigateToSignIn() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        
+        let vc = storyboard.instantiateViewController(withIdentifier: "SignInViewController")
+        self.present(vc, animated: true, completion: nil)
     }
 }
