@@ -8,6 +8,7 @@
 import UIKit
 
 struct Product {
+    var imageName: String
     var title: String
     var description: String
    
@@ -27,9 +28,9 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         listTableView.delegate = self
         
         productList = [
-            Product(title: "Glasses", description: "This is best Glasses I've ever seen"),
-            Product(title: "Desert", description: "This is so yummy"),
-            Product(title: "Camera Lens", description: "I wish I had this camera lens")
+            Product(imageName: "Glass", title: "Glasses", description: "This is best Glasses I've ever seen"),
+            Product(imageName: "Desert", title: "Desert", description: "This is so yummy"),
+            Product(imageName: "Lens", title: "Camera Lens", description: "I wish I had this camera lens")
         ]
     }
     
@@ -43,6 +44,8 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         }
         
         let product = productList[indexPath.row]
+        
+        cell.imageL.image = UIImage(named: product.imageName)
         cell.titleLabel.text = product.title
         cell.descriptionLabel.text = product.description
         
