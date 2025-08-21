@@ -7,15 +7,16 @@
 
 import UIKit
 
-class WelcomeIIViewController: UIViewController {
+class LoginIIViewController: UIViewController {
     var LogInToYourAccountLabel: UILabel!
     var EmailLabel: UILabel!
     var EmailTextField: UITextField!
     var PasswordLabel: UILabel!
     var passwordTextField: UITextField!
     var loginButton: UIButton!
-    var ForgotPasswordLabel: UILabel!
+    var ForgotPasswordButton: UIButton!
     var DontHaveAnAccountLabel: UILabel!
+    var SignUpButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +30,7 @@ class WelcomeIIViewController: UIViewController {
         LogInToYourAccountLabel = UILabel()
         LogInToYourAccountLabel.text = "Log In To Your Account"
         LogInToYourAccountLabel.textColor = .white
+        LogInToYourAccountLabel.font = .systemFont(ofSize: 30, weight: .bold)
         LogInToYourAccountLabel.textAlignment = .center
         LogInToYourAccountLabel.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(LogInToYourAccountLabel)
@@ -43,7 +45,7 @@ class WelcomeIIViewController: UIViewController {
         
         EmailTextField = UITextField()
         EmailTextField.placeholder = "Enter Email"
-        EmailTextField.textAlignment = .center
+        EmailTextField.textAlignment = .left
         EmailTextField.borderStyle = .roundedRect
         EmailTextField.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(EmailTextField)
@@ -57,34 +59,42 @@ class WelcomeIIViewController: UIViewController {
         
         passwordTextField = UITextField()
         passwordTextField.placeholder = "Enter Password"
-        passwordTextField.textAlignment = .center
+        passwordTextField.textAlignment = .left
         passwordTextField.borderStyle = .roundedRect
         passwordTextField.isSecureTextEntry = true
         passwordTextField.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(passwordTextField)
         
-        ForgotPasswordLabel = UILabel()
-        ForgotPasswordLabel.text = "Forgot Password?"
-        ForgotPasswordLabel.textColor = .blue
-        ForgotPasswordLabel.textAlignment = .center
-        ForgotPasswordLabel.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(ForgotPasswordLabel)
+        ForgotPasswordButton = UIButton()
+        ForgotPasswordButton.setTitle("Forgot Password?", for: .normal)
+        ForgotPasswordButton.setTitleColor(UIColor.blue, for: .normal)
+        ForgotPasswordButton.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(ForgotPasswordButton)
         
         loginButton = UIButton(type: .system)
-        loginButton.setTitle("Login", for: .normal)
+        loginButton.setTitle("Log In", for: .normal)
         loginButton.backgroundColor = .systemRed
         loginButton.setTitleColor(UIColor.white, for: .normal)
         loginButton.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(loginButton)
         
         DontHaveAnAccountLabel = UILabel()
-        DontHaveAnAccountLabel.text = "Dont have an Account? Sign Up"
+        DontHaveAnAccountLabel.text = "Don't have an Account?"
+        DontHaveAnAccountLabel.textColor = .white
+        DontHaveAnAccountLabel.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(DontHaveAnAccountLabel)
+        
+        SignUpButton = UIButton(type: .system)
+        SignUpButton.setTitle("Sign Up", for: .normal)
+        SignUpButton.setTitleColor(UIColor.blue, for: .normal)
+        SignUpButton.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(SignUpButton)
         
         
 
         NSLayoutConstraint.activate([
             LogInToYourAccountLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            LogInToYourAccountLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -150),
+            LogInToYourAccountLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -180),
             
             
             EmailLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: -150),
@@ -103,13 +113,20 @@ class WelcomeIIViewController: UIViewController {
             passwordTextField.widthAnchor.constraint(equalTo: EmailTextField.widthAnchor),
             passwordTextField.heightAnchor.constraint(equalToConstant: 40),
             
-            ForgotPasswordLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 140),
-            ForgotPasswordLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 55),
+            ForgotPasswordButton.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 110),
+            ForgotPasswordButton.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 60),
 
             loginButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             loginButton.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 60),
             loginButton.widthAnchor.constraint(equalTo: EmailTextField.widthAnchor),
-            loginButton.heightAnchor.constraint(equalToConstant: 40)
+            loginButton.heightAnchor.constraint(equalToConstant: 40),
+            
+            DontHaveAnAccountLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: -30),
+            DontHaveAnAccountLabel.topAnchor.constraint(equalTo: loginButton.bottomAnchor, constant: 20),
+            
+            SignUpButton.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 95),
+//            SignUpButton.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 20),
+            SignUpButton.topAnchor.constraint(equalTo: DontHaveAnAccountLabel.bottomAnchor, constant: -25),
             
             
         ])
